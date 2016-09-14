@@ -1,0 +1,17 @@
+{
+  "name": "Lab-Web-Final",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Litiano Moura <litiano.moura@yahoo.com.br>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Litiano/Lab-Web-Final",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
