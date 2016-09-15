@@ -1,5 +1,5 @@
 {
-  "name": "Lab-Web-Final",
+  "name": "lab-web-final",
   "description": "",
   "main": "",
   "authors": [
@@ -11,7 +11,14 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "vendor/bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery-mask-plugin": "jquery-mask#^1.14.0",
+    "bootstrap": "^3.3.7",
+    "jquery-ui": "^1.12.1",
+    "jquery": "^3.1.0"
+  }
 }
