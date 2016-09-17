@@ -14,8 +14,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = 'usuarios';
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'nome', 'email', 'senha', 'sobrenome', 'login'
     ];
 
     /**
@@ -26,4 +28,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getAuthPassword()
+    {
+        return $this->senha;
+    }
 }
