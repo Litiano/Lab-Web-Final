@@ -54,15 +54,70 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Militares <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ url('/sistema/militar/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/militar/listar') }}">Listar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Armamento <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ url('/sistema/armamento/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/armamento/listar') }}">Listar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Munições <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ url('/sistema/municoes/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/municoes/listar') }}">Listar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Acessórios <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ url('/sistema/acessorios/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/acessorios/listar') }}">Listar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Cautelas <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ url('/sistema/cautelas/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/cautelas/listar') }}">Listar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->nome }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a href="{{ url('/logout') }}"
-                                        onclick="event.preventDefault();
+                                       onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                        Logout
+                                        Sair!
                                     </a>
 
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -76,9 +131,27 @@
             </div>
         </div>
     </nav>
-@if(isset($mensagem))
-    <div><strong>{{$mensagem}}</strong></div>
+
+@if(isset($erro))
+    <div class="container">
+        <div class="row col-md-8 col-md-offset-2 container">
+            <div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{$erro}}</div>
+        </div>
+    </div>
 @endif
+@if(isset($mensagem))
+    <div class="container">
+        <div class="row col-md-8 col-md-offset-2 container">
+            <div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{$mensagem}}</div>
+        </div>
+    </div>
+@endif
+
+
+
+
     @yield('content')
 
     <!-- Scripts -->

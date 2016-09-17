@@ -44,6 +44,7 @@ class MilitarController extends Controller
     }
 
     public function listar(){
-
+        $militares = Militar::all();
+        return view('militar.listar', compact('militares'));
     }
 }

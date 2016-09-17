@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Armamento;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Validation\Validator;
 
 class ArmamentoController extends Controller
 {
@@ -13,11 +15,29 @@ class ArmamentoController extends Controller
     }
 
     public function criar(){
-
+        return view('armamento.criar');
     }
 
-    public function criarPost(){
+    public function criarPost(Request $request){
+        $all = $request->all();
 
+
+        $this->validate($request, [
+            'numero_serie' => 'required|unique:armamentos|max:255',
+        ]);
+
+        $armamento = new Armamento();
+        $armamento->numero_serie = $all['numero_serie'];
+        $armamento->modelo = $all['modelo'];
+        $armamento->fabricante = $all['fabricante'];
+        $armamento->disponivel = $all['disponivel'];
+        $armamento->save();
+
+        if($armamento->id){
+            return view('armamento.criar', ['mensagem'=>"Armamento cadastrado com sucesso!"]);
+        }else{
+            return view('armamento.criar', ['erro'=>"Erro ao cadastrar armamento!"]);
+        }
     }
 
     public function ver(){

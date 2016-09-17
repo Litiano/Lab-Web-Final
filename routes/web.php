@@ -36,6 +36,8 @@ Route::group(['prefix'=>'sistema', 'middleware'=>'auth'], function (){
         Route::get('excluir/{id}', 'AcessoriosController@excluir');
         Route::get('editar/{id}', 'AcessoriosController@editar');
         Route::post('editar/{id}', 'AcessoriosController@editarPost');
+        Route::get('criar', 'AcessoriosController@criar');
+        Route::post('criar', 'AcessoriosController@criarPost');
     });
 
     Route::group(['prefix'=>'armamento'], function () {
@@ -44,6 +46,8 @@ Route::group(['prefix'=>'sistema', 'middleware'=>'auth'], function (){
         Route::get('excluir/{id}', 'ArmamentoController@excluir');
         Route::get('editar/{id}', 'ArmamentoController@editar');
         Route::post('editar/{id}', 'ArmamentoController@editarPost');
+        Route::get('criar', 'ArmamentoController@criar');
+        Route::post('criar', 'ArmamentoController@criarPost');
     });
 
     Route::group(['prefix'=>'cautela'], function () {
