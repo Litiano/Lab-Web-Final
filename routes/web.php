@@ -30,7 +30,7 @@ Route::group(['prefix'=>'sistema', 'middleware'=>'auth'], function (){
         Route::post('criar', 'MilitarController@criarPost');
     });
 
-    Route::group(['prefix'=>'acessorios'], function () {
+    Route::group(['prefix'=>'acessorio'], function () {
         Route::get('listar', 'AcessoriosController@listar');
         Route::get('ver/{id}', 'AcessoriosController@ver');
         Route::get('excluir/{id}', 'AcessoriosController@excluir');
@@ -56,6 +56,8 @@ Route::group(['prefix'=>'sistema', 'middleware'=>'auth'], function (){
         Route::get('excluir/{id}', 'CautelaController@excluir');
         Route::get('editar/{id}', 'CautelaController@editar');
         Route::post('editar/{id}', 'CautelaController@editarPost');
+        Route::get('criar/{militarId}', 'CautelaController@criar');
+        Route::post('criar', 'CautelaController@criarPost');
     });
 
     Route::group(['prefix'=>'municao'], function () {
@@ -64,5 +66,7 @@ Route::group(['prefix'=>'sistema', 'middleware'=>'auth'], function (){
         Route::get('excluir/{id}', 'MunicaoController@excluir');
         Route::get('editar/{id}', 'MunicaoController@editar');
         Route::post('editar/{id}', 'MunicaoController@editarPost');
+        Route::get('criar', 'MunicaoController@criar');
+        Route::post('criar', 'MunicaoController@criarPost');
     });
 });

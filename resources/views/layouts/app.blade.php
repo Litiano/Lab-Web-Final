@@ -80,8 +80,8 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/sistema/municoes/criar') }}">Cadastrar</a>
-                                    <a href="{{ url('/sistema/municoes/listar') }}">Listar</a>
+                                    <a href="{{ url('/sistema/municao/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/municao/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
@@ -91,8 +91,8 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/sistema/acessorios/criar') }}">Cadastrar</a>
-                                    <a href="{{ url('/sistema/acessorios/listar') }}">Listar</a>
+                                    <a href="{{ url('/sistema/acessorio/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/acessorio/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
@@ -102,8 +102,8 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/sistema/cautelas/criar') }}">Cadastrar</a>
-                                    <a href="{{ url('/sistema/cautelas/listar') }}">Listar</a>
+                                    <a href="{{ url('/sistema/cautela/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/cautela/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>

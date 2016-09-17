@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Acessorio;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 
 class AcessoriosController extends Controller
 {
@@ -13,10 +13,15 @@ class AcessoriosController extends Controller
     }
 
     public function criar(){
-
+        return view('acessorio.criar');
     }
 
-    public function criarPost(){
+    public function criarPost(Request $request){
+        $acessorio = Acessorio::create($request->all());
+        if ($acessorio->id){
+            return view('acessorio.criar', ['mensagem'=>'Acessório cadastrado com sucesso!']);
+        }
+        return view('acessorio.criar', ['erro'=>'Erro ao cadastrar acessório!']);
 
     }
 
@@ -37,6 +42,7 @@ class AcessoriosController extends Controller
     }
 
     public function listar(){
-
+        $acessorios = Acessorio::all();
+        return view('acessorio.listar', compact('acessorios'));
     }
 }

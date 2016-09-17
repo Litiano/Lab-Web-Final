@@ -5,24 +5,48 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Cadastro de Munições</div>
+                    <div class="panel-heading">Cadastro de Cautela para: <strong>{{$militar->nome_guerra}}</strong></div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/sistema/municao/criar') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/sistema/cautela/criar') }}">
                             {{ csrf_field() }}
+                            <input type="hidden" name="militar_id" value="{{$militar->id}}">
 
-                            <div class="form-group{{ $errors->has('calibre') ? ' has-error' : '' }}">
-                                <label for="calibre" class="col-md-4 control-label">Calibre</label>
+                            <div class="form-group">
+                                <label for="armamentos" class="col-md-4 control-label">Armamentos</label>
 
                                 <div class="col-md-6">
-                                    <input id="calibre" type="text" class="form-control" name="calibre" value="{{ old('calibre') }}" required autofocus>
-
-                                    @if ($errors->has('calibre'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('calibre') }}</strong>
-                                    </span>
-                                    @endif
+                                    <select multiple id="armamentos" name="armamentos[]">
+                                        <option>Nenhum selecionado</option>
+                                        @foreach($armamentos as $armamento)
+                                            <option value="{{$armamento->id}}">{{$armamento->modelo.'-'.$armamento->numero_serie}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Munições</label>
+                                <div class="col-md-8">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <td>Descrição</td>
+                                            <td>Quantidade</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($municoes as $municao)
+                                            <tr>
+                                                <td><label><input name="municoes[{{$municao->id}}][selecionada]" type="checkbox"/> {{$municao->calibre . ' - ' . $municao->descricao}}</label></td>
+                                                <td><input name="municoes[{{$municao->id}}][quantidade]" style="width: 5em" type="number"/></td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
 
                             <div class="form-group{{ $errors->has('descricao') ? ' has-error' : '' }}">
                                 <label for="descricao" class="col-md-4 control-label">Descrição</label>
@@ -47,20 +71,6 @@
                                     @if ($errors->has('quantidade'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('quantidade') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('modelo') ? ' has-error' : '' }}">
-                                <label for="fabricante" class="col-md-4 control-label">Fabricante</label>
-
-                                <div class="col-md-6">
-                                    <input id="fabricante" type="text" class="form-control" name="fabricante" value="{{ old('fabricante') }}" required autofocus>
-
-                                    @if ($errors->has('fabricante'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('fabricante') }}</strong>
                                     </span>
                                     @endif
                                 </div>

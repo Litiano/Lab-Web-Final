@@ -8,4 +8,7 @@ class Militar extends Model
 {
     protected $table = 'militares';
 
+    public function cautelas(){
+        return $this->hasMany(Cautela::class, 'militar_id', 'id');
+    }
 }

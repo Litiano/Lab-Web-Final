@@ -38,7 +38,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('modelo') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('fabricante') ? ' has-error' : '' }}">
                                 <label for="fabricante" class="col-md-4 control-label">Fabricante</label>
 
                                 <div class="col-md-6">

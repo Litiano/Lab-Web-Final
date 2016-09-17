@@ -21,7 +21,6 @@ class ArmamentoController extends Controller
     public function criarPost(Request $request){
         $all = $request->all();
 
-
         $this->validate($request, [
             'numero_serie' => 'required|unique:armamentos|max:255',
         ]);
@@ -53,10 +52,12 @@ class ArmamentoController extends Controller
     }
 
     public function excluir($id){
-
+        Armamento::destroy($id);
+        return view('armamento.listar', ['mensagem'=>'Excluido com sucesso!']);
     }
 
     public function listar(){
-
+        $armamentos = Armamento::all();
+        return view('armamento.listar', compact('armamentos'));
     }
 }
