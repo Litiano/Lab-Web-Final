@@ -38,7 +38,7 @@
                                         @foreach($municoes as $municao)
                                             <tr>
                                                 <td><label><input name="municoes[{{$municao->id}}][selecionada]" type="checkbox"/> {{$municao->calibre . ' - ' . $municao->descricao}}</label></td>
-                                                <td><input name="municoes[{{$municao->id}}][quantidade]" style="width: 5em" type="number"/></td>
+                                                <td><input min="0" value="1" name="municoes[{{$municao->id}}][quantidade]" style="width: 5em; text-align: center" type="number"/></td>
                                             </tr>
                                         @endforeach
                                         </tbody>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cautela;
 use App\Models\Militar;
+use Faker\Generator;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

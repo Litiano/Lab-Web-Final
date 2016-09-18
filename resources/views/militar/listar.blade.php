@@ -18,7 +18,7 @@
                 <td>{{$militar->posto}}</td>
                 <td>
                     <button class="btn btn-success">Ver Cautelas</button>
-                    <button class="btn btn-success">Criar Cautela</button>
+                    <a href="{{url('/sistema/cautela/criar/').'/'.$militar->id}}"><button class="btn btn-success">Criar Cautela</button></a>
                 </td>
             </tr>
             @endforeach
