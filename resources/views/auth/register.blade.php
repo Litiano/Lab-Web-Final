@@ -94,6 +94,25 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('reserva_id') ? ' has-error' : '' }}">
+                            <label for="reserva_id" class="col-md-4 control-label">Reserva</label>
+
+                            <div class="col-md-6">
+                                <select name="reserva_id" id="reserva_id" class="form-control">
+                                    <option></option>
+                                    @foreach($reservas as $reserva)
+                                        <option value="{{$reserva->id}}">{{$reserva->sigla}}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('reserva_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('reserva_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

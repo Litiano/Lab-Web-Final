@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Reserva;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -68,6 +69,12 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'login' => $data['login'],
             'senha' => bcrypt($data['password']),
+            'reserva_id' => $data['reserva_id']
         ]);
+    }
+
+    public function showRegistrationForm(){
+        $reservas = Reserva::all();
+        return view('auth.register', compact('reservas'));
     }
 }

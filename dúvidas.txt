@@ -1,0 +1,13 @@
+Um militar poderá pegar armas em qualquer reserva? Ou o mesmo deve pertencer a apenas uma reserva?
+R: cada militar pertence a uma reserva
+
+
+
+O cadastro de itens deve ser compartilhado entre as reservas? Se sim, cada reserva deve possuir um estoque individual.
+Cadastro de itens GLOBAL, e cada reserva possui seu estoque e desabilitar itens.
+
+
+Como deve funcionar a questão dos nomes de guerra? Quantos postos por reserva?
+Nome guerra = Nome + graduação
+
+

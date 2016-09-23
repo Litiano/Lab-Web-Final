@@ -17,6 +17,8 @@ class Cautelas extends Migration
             $table->increments('id');
             $table->integer('militar_id')->unsigned();
             $table->foreign('militar_id')->references('id')->on('militares')->onDelete('cascade');
+            $table->unsignedInteger('reserva_id');
+            $table->foreign('reserva_id')->references('id')->on('reservas');
             $table->boolean('finalizada')->default('0');
             $table->timestamps();
         });
