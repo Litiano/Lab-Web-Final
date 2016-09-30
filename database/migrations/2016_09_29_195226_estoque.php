@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Acessorios extends Migration
+class Estoque extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class Acessorios extends Migration
      */
     public function up()
     {
-        \Schema::create('acessorios', function (Blueprint $table){
+        \Schema::create('estoque', function (Blueprint $table){
             $table->increments('id');
-            $table->string('descricao');
+            $table->unsignedInteger('reserva_id');
+            $table->foreign('reserva_id')->references('id')->on('reservas');
+            $table->string('tipo');
+            $table->unsignedInteger('item_id');
+            $table->integer('quantidade');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class Acessorios extends Migration
      */
     public function down()
     {
-        \Schema::dropIfExists('acessorios');
+        \Schema::dropIfExists('estoque');
     }
 }

@@ -112,6 +112,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('senha_admin') ? ' has-error' : '' }}">
+                            <label for="password-confirm" class="col-md-4 control-label">Senha Admin</label>
+
+                            <div class="col-md-6">
+                                <input id="senha_admin" type="password" class="form-control" name="senha_admin" required>
+
+                                @if ($errors->has('senha_admin'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('senha_admin') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

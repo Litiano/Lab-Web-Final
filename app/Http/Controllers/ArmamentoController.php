@@ -30,6 +30,7 @@ class ArmamentoController extends Controller
         $armamento->modelo = $all['modelo'];
         $armamento->fabricante = $all['fabricante'];
         $armamento->disponivel = $all['disponivel'];
+        $armamento->reserva_id = \Auth::user()->reserva_id;
         $armamento->save();
 
         if($armamento->id){

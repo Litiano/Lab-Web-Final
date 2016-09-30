@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\Reserva;
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -28,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/register';
 
     /**
      * Create a new controller instance.
@@ -51,7 +54,9 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:usuarios',
+            'login' => 'required|unique:usuarios',
             'password' => 'required|min:6|confirmed',
+            'senha_admin' => 'required'
         ]);
     }
 
@@ -76,5 +81,27 @@ class RegisterController extends Controller
     public function showRegistrationForm(){
         $reservas = Reserva::all();
         return view('auth.register', compact('reservas'));
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $data = $request->all();
+        $reservas = Reserva::all();
+        // Senha do admin é 123456
+        if(!Hash::check($data['senha_admin'], '$2y$10$vSUjCpn9kkj3ghbNUCUKm.hra62PGsJ14uMvU14o4K.MJ/c95o2C2')){
+            return view('auth.register', ['erro' => 'Senha Admin Inválida', 'reservas'=>$reservas]);
+        }
+        $this->create($request->all());
+
+        return view('auth.register', ['mensagem' => 'Usuário cadastrado com sucesso!', 'reservas'=>$reservas]);
+
     }
 }

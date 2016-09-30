@@ -15,8 +15,10 @@ class Militares extends Migration
     {
         \Schema::create('militares', function (Blueprint $table){
             $table->increments('id');
+            $table->unsignedInteger('reserva_id');
+            $table->foreign('reserva_id')->references('id')->on('reservas');
             $table->string('posto');
-            $table->string('nome_guerra');
+            $table->string('nome_guerra')->unique();
             $table->timestamps();
         });
     }

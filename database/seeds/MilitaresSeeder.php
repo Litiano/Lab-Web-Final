@@ -11,32 +11,16 @@ class MilitaresSeeder extends Seeder
      */
     public function run()
     {
-        $postos = ['Marechal', 'General de Exército', 'General de Divisão', 'General de Brigada', 'Coronel', 'Tenente-Coronel',
-            'Major', 'Capitão', '1º Tenente', '2º Tenente', 'Aspirante a Oficial', 'Subtenente', '1º Sargento', '2º Sargento',
-            '3º Sargento', 'Taifeiro-Mor', 'Cabo', 'Taifeiro de 1ª Classe', 'Taifeiro de 2º Classe', 'Soldado'];
+        $postos = ['General', 'Coronel', 'Tenente-Coronel', 'Major', 'Capitão', '1º Tenente', '2º Tenente',
+            'Aspirante a Oficial', 'Subtenente', '1º Sargento', '2º Sargento', '3º Sargento', 'Cabo', 'Soldado'];
 
-        /**
-         * SD - Soldado
-         * CB - Cabo
-         * 3º SGT - 3º Sargento
-         * 2 ||
-         * 1 ||
-         * S Ten
-         * ASP
-         * 2º TEN
-         * 1º TEN
-         * CAP - Capitão
-         * MAJ - Major
-         * TC - Tenente Coronel
-         * CEL - Coronel
-         * GEN - General
-         *
-         */
 
-        for($i=0; $i<=50; $i++){
+        for($i=0; $i<50; $i++){
+            $posto = $postos[array_rand($postos)];
             \App\Models\Militar::create([
-                'nome_guerra' => str_random(10) . ' ' . str_random(10),
-                'posto' => $postos[array_rand($postos)]
+                'nome_guerra' => $posto . ' ' . str_random(10),
+                'posto' => $posto,
+                'reserva_id' => random_int(1, 3)
             ]);
         }
     }
