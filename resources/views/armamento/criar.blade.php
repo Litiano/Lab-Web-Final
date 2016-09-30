@@ -52,7 +52,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('disponivel') ? ' has-error' : '' }}">
+                            <!--<div class="form-group{{ $errors->has('disponivel') ? ' has-error' : '' }}">
                                 <label for="disponivel" class="col-md-4 control-label">Disponível</label>
 
                                 <div class="col-md-6">
@@ -67,7 +67,7 @@
                                     </span>
                                     @endif
                                 </div>
-                            </div>
+                            </div>-->
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">

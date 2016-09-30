@@ -40,7 +40,11 @@ class EstoqueController extends Controller
     }
 
     public function listar(){
-        $estoque = Estoque::whereReservaId(\Auth::user()->reserva_id)->get();
-        dd($estoque);
+        $armamentos = Armamento::whereReservaId(\Auth::user()->reserva_id)->get();
+
+        $municoes = Estoque::whereReservaId(\Auth::user()->reserva_id)->whereTipo('municao')->get();
+        $acessorios = Estoque::whereReservaId(\Auth::user()->reserva_id)->whereTipo('acessorio')->get();
+
+        return view('estoque.listar', compact('armamentos', 'municoes', 'acessorios'));
     }
 }

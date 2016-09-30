@@ -29,7 +29,7 @@ class ArmamentoController extends Controller
         $armamento->numero_serie = $all['numero_serie'];
         $armamento->modelo = $all['modelo'];
         $armamento->fabricante = $all['fabricante'];
-        $armamento->disponivel = $all['disponivel'];
+        $armamento->disponivel = 1;
         $armamento->reserva_id = \Auth::user()->reserva_id;
         $armamento->save();
 

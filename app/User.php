@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Reserva;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -32,5 +33,9 @@ class User extends Authenticatable
     public function getAuthPassword()
     {
         return $this->senha;
+    }
+
+    public function reserva(){
+        return $this->belongsTo(Reserva::class, 'reserva_id', 'id');
     }
 }
