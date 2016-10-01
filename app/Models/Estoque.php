@@ -33,4 +33,5 @@ class Estoque extends Model
     public function getAcessorios(){
         return Estoque::whereReservaId(\Auth::user()->reserva_id)->whereTipo('acessorio')->get();
     }
+
 }

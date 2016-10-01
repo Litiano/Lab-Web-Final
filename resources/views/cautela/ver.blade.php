@@ -14,7 +14,10 @@
 
                         <div class="form-group">
                             @foreach($cautela->armamentos as $armamento)
-                                <label class="col-md-4 control-label form-inline">{{$armamento->descricao}}: 1</label>
+                                <label class="col-md-4 control-label form-inline">{{$armamento->descricao}}: 1
+                                    <a><button class="btn btn-warning">Devolter Item</button></a>
+                                </label>
+
                             @endforeach
                         </div>
                     </div>
@@ -28,7 +31,13 @@
 
                         <div class="form-group">
                             @foreach($cautela->acessorios as $acessorio)
-                                <label class="col-md-4 control-label form-inline">{{$acessorio->descricao}}: {{$acessorio->quantidade_solicitada}}</label>
+                                <form method="post" action="{{url('/sistema/cautela/devolver-item/', ['id'=>$acessorio->id])}}">
+                                <label class="col-md-4 control-label form-inline">{{$acessorio->descricao}}: {{$acessorio->quantidade}}
+                                    <br>
+                                    <input value="0" type="number" style="width: 4em;" min="1" max="{{$acessorio->quantidade}}">
+                                    <a><button class="btn btn-warning">Devolver Item</button></a>
+                                </label>
+                                </form>
                             @endforeach
                         </div>
                     </div>

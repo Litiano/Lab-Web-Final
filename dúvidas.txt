@@ -15,3 +15,5 @@ Que cadastra os usuários de cada reserva?
 Um ADMIN
 
 
+O cadastro de armamento deve ser generico, e a informação de N/S deve ser informado no momento da cautela.
+
