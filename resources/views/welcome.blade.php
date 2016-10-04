@@ -36,10 +36,17 @@
             }
 
             .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
+                  position: absolute;
+              		right: 0px;
+              		top: 0px;
+              		background-image: url("images/camuflagem.png");
+              		width: 100%;
+              		padding: 15px;
+                  border-bottom: 3px solid #B27A49;
             }
+            .top-right > a {
+					color: white;
+			}
 
             .content {
                 text-align: center;
@@ -50,13 +57,14 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fcfeff;
                 padding: 0 25px;
-                font-size: 12px;
+                font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                float: right;
             }
 
             .m-b-md {
@@ -75,15 +83,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                  Gerenciador de Cautelas
                 </div>
             </div>
         </div>
