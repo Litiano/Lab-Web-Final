@@ -53,7 +53,9 @@
             }
 
             .title {
-                font-size: 84px;
+              font-size: 84px;
+              margin-top: -184px;
+              font-weight: 300;
             }
 
             .links > a {
@@ -70,9 +72,16 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            #image {
+              float: left;
+              margin-top: -342px;
+              margin-left: 42%;
+            }
         </style>
+
     </head>
     <body>
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -87,5 +96,6 @@
                 </div>
             </div>
         </div>
+        <span id="image"><img src="images/exercito.jpg"  height="300" width="169"alt="" /></span>
     </body>
 </html>
