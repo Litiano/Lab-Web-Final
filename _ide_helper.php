@@ -1,7 +1,11 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
+<<<<<<< HEAD
  * Generated for Laravel 5.3.11 on 2016-09-28.
+=======
+ * Generated for Laravel 5.3.9 on 2016-09-29.
+>>>>>>> 1b88b3c3c4805d7cc46329703fd07d9fa2da34ed
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper

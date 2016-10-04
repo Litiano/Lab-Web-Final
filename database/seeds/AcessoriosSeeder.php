@@ -15,8 +15,7 @@ class AcessoriosSeeder extends Seeder
 
         foreach ($acessorios as $acessorio){
             \App\Models\Acessorio::create([
-                'descricao' => $acessorio,
-                'quantidade' => random_int(1,20)
+                'descricao' => $acessorio
             ]);
         }
     }

@@ -15,9 +15,8 @@ class Municoes extends Migration
     {
         \Schema::create('municoes', function (Blueprint $table){
             $table->increments('id');
-            $table->string('calibre')->unique();
+            $table->string('calibre');
             $table->string('descricao');
-            $table->integer('quantidade');
             $table->timestamps();
         });
     }

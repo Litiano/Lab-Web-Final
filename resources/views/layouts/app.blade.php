@@ -35,7 +35,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Laravel') }} {{@Auth::user()->reserva->sigla}}
                 </a>
             </div>
 
@@ -113,8 +113,19 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/sistema/cautela/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/militar/listar') }}">Cadastrar</a>
                                     <a href="{{ url('/sistema/cautela/listar') }}">Listar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Estoque <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ url('/sistema/estoque/gerenciar') }}">Entrada de Itens</a>
+                                    <a href="{{ url('/sistema/estoque/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>

@@ -10,15 +10,15 @@
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/sistema/militar/criar') }}">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('nome_guerra') ? ' has-error' : '' }}">
-                                <label for="nome_guerra" class="col-md-4 control-label">Nome Guerra</label>
+                            <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
+                                <label for="nome" class="col-md-4 control-label">Nome</label>
 
                                 <div class="col-md-6">
-                                    <input id="nome_guerra" type="text" class="form-control" name="nome_guerra" value="{{ old('nome_guerra') }}" required autofocus>
+                                    <input id="nome" type="text" class="form-control" name="nome" value="{{ old('nome') }}" required autofocus>
 
-                                    @if ($errors->has('nome_guerra'))
+                                    @if ($errors->has('nome'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('nome_guerra') }}</strong>
+                                        <strong>{{ $errors->first('nome') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -28,8 +28,12 @@
                                 <label for="posto" class="col-md-4 control-label">Posto</label>
 
                                 <div class="col-md-6">
-                                    <input id="posto" type="text" class="form-control" name="posto" value="{{ old('posto') }}" required autofocus>
-
+                                    <select name="posto" id="posto" class="form-control">
+                                        <option></option>
+                                        @foreach($postos as $posto)
+                                            <option value="{{$posto}}">{{$posto}}</option>
+                                        @endforeach
+                                    </select>
                                     @if ($errors->has('posto'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('posto') }}</strong>

@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ReservasSeeder::class);
         $this->call(AcessoriosSeeder::class);
         $this->call(MilitaresSeeder::class);
+        $this->call(MunicoesSeeder::class);
+        $this->call(ArmamentosSeeder::class);
     }
 }

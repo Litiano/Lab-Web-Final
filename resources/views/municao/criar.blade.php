@@ -38,20 +38,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('quantidade') ? ' has-error' : '' }}">
-                                <label for="quantidade" class="col-md-4 control-label">Quantidade</label>
-
-                                <div class="col-md-6">
-                                    <input id="quantidade" type="number" step="1" class="form-control" name="quantidade" value="{{ old('quantidade') }}" required autofocus>
-
-                                    @if ($errors->has('quantidade'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('quantidade') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
                             <div class="form-group{{ $errors->has('modelo') ? ' has-error' : '' }}">
                                 <label for="fabricante" class="col-md-4 control-label">Fabricante</label>
 

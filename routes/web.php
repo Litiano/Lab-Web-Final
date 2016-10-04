@@ -69,4 +69,11 @@ Route::group(['prefix'=>'sistema', 'middleware'=>'auth'], function (){
         Route::get('criar', 'MunicaoController@criar');
         Route::post('criar', 'MunicaoController@criarPost');
     });
+
+    Route::group(['prefix'=>'estoque'], function () {
+        Route::get('listar', 'EstoqueController@listar');
+        Route::get('teste', 'EstoqueController@teste');
+        Route::get('gerenciar', 'EstoqueController@gerenciar');
+        Route::post('gerenciar', 'EstoqueController@gerenciarPost');
+    });
 });

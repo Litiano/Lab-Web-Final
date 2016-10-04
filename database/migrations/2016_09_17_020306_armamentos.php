@@ -15,6 +15,8 @@ class Armamentos extends Migration
     {
         \Schema::create('armamentos', function (Blueprint $table){
             $table->increments('id');
+            $table->unsignedInteger('reserva_id');
+            $table->foreign('reserva_id')->references('id')->on('reservas');
             $table->string('numero_serie')->unique();
             $table->string('modelo');
             $table->string('fabricante');

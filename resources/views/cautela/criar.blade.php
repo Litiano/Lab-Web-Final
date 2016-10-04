@@ -15,12 +15,9 @@
                                 <label for="armamentos" class="col-md-4 control-label">Armamentos</label>
 
                                 <div class="col-md-6">
-                                    <select multiple id="armamentos" name="armamentos[]">
-                                        <option>Nenhum selecionado</option>
-                                        @foreach($armamentos as $armamento)
-                                            <option value="{{$armamento->id}}">{{$armamento->modelo.'-'.$armamento->numero_serie}}</option>
-                                        @endforeach
-                                    </select>
+                                    @foreach($armamentos as $armamento)
+                                        <label><input name="armamentos[{{$armamento->id}}]" type="checkbox" value="1"> {{$armamento->modelo}} - {{$armamento->numero_serie}}</label>
+                                    @endforeach
                                 </div>
                             </div>
 
@@ -32,13 +29,15 @@
                                         <tr>
                                             <td>Descrição</td>
                                             <td>Quantidade</td>
+                                            <td>Disponivel</td>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($municoes as $municao)
                                             <tr>
-                                                <td><label><input name="municoes[{{$municao->id}}][selecionada]" type="checkbox"/> {{$municao->calibre . ' - ' . $municao->descricao}}</label></td>
-                                                <td><input min="0" value="1" name="municoes[{{$municao->id}}][quantidade]" style="width: 5em; text-align: center" type="number"/></td>
+                                                <td>{{$municao->item->calibre . ' - ' . $municao->item->descricao}}</td>
+                                                <td><input min="0" max="{{$municao->quantidade}}" value="0" name="municoes[{{$municao->id}}]" style="width: 5em; text-align: center" type="number"/></td>
+                                                <td>{{$municao->quantidade}}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -47,34 +46,31 @@
 
                             </div>
 
-
-                            <div class="form-group{{ $errors->has('descricao') ? ' has-error' : '' }}">
-                                <label for="descricao" class="col-md-4 control-label">Descrição</label>
-
-                                <div class="col-md-6">
-                                    <input id="descricao" type="text" class="form-control" name="descricao" value="{{ old('descricao') }}" required autofocus>
-
-                                    @if ($errors->has('descricao'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('descricao') }}</strong>
-                                    </span>
-                                    @endif
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Acessorios</label>
+                                <div class="col-md-8">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <td>Descrição</td>
+                                            <td>Quantidade</td>
+                                            <td>Disponivel</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($acessorios as $acessorio)
+                                            <tr>
+                                                <td>{{$acessorio->item->descricao}}</td>
+                                                <td><input min="0" max="{{$acessorio->quantidade}}" value="0" name="acessorios[{{$acessorio->id}}]" style="width: 5em; text-align: center" type="number"/></td>
+                                                <td>{{$acessorio->quantidade}}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
+
                             </div>
 
-                            <div class="form-group{{ $errors->has('quantidade') ? ' has-error' : '' }}">
-                                <label for="quantidade" class="col-md-4 control-label">Quantidade</label>
-
-                                <div class="col-md-6">
-                                    <input id="quantidade" type="number" step="1" class="form-control" name="quantidade" value="{{ old('quantidade') }}" required autofocus>
-
-                                    @if ($errors->has('quantidade'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('quantidade') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">

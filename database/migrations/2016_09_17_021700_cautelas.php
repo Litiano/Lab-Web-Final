@@ -20,6 +20,8 @@ class Cautelas extends Migration
             $table->unsignedInteger('reserva_id');
             $table->foreign('reserva_id')->references('id')->on('reservas');
             $table->boolean('finalizada')->default('0');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
