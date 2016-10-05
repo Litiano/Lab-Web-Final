@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
 
     <!-- Scripts -->
     <script>
@@ -19,9 +19,21 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <style>
+    .navbar.navbar-default.navbar-static-top.topbackgroud {
+    background-image: url("images/camuflagem.png");
+    }
+    #top_a{
+      color: white;
+    }
+    img {
+      margin-top: 49px;
+      margin-left: 25px;
+    }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top topbackgroud">
         <div class="container">
             <div class="navbar-header">
 
@@ -34,7 +46,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a id="top_a" class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }} {{@Auth::user()->reserva->sigla}}
                 </a>
             </div>
@@ -49,8 +61,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a  id="top_a"href="{{ url('/login') }}">Login</a></li>
+                        <li><a id="top_a" href="{{ url('/register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

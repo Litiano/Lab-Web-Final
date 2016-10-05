@@ -3120,8 +3120,8 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #00923f;
+  border-color: #f4f8fb;
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -5462,6 +5462,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel-body {
   padding: 15px;
+  margin-top: 54px;
 }
 .panel-heading {
   padding: 10px 15px;
@@ -5689,6 +5690,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel-default {
   border-color: #ddd;
+  margin-top: 56px;
 }
 .panel-default > .panel-heading {
   color: #333;
@@ -6767,7 +6769,5 @@ button.close {
     width: 100%;
     padding: 15px;
 }
-.navbar.navbar-default.navbar-static-top {
-    background-image: url("images/camuflagem.png");
-}
+
 /*# sourceMappingURL=bootstrap.css.map */
