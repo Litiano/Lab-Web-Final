@@ -70,8 +70,8 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/sistema/militar/criar') }}">Cadastrar</a>
-                                    <a href="{{ url('/sistema/militar/listar') }}">Listar</a>
+                                    <a id="top_a"href="{{ url('/sistema/militar/criar') }}">Cadastrar</a>
+                                    <a id="top_a" href="{{ url('/sistema/militar/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
@@ -81,8 +81,8 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/sistema/armamento/criar') }}">Cadastrar</a>
-                                    <a href="{{ url('/sistema/armamento/listar') }}">Listar</a>
+                                    <a id="top_a" href="{{ url('/sistema/armamento/criar') }}">Cadastrar</a>
+                                    <a id="top_a" href="{{ url('/sistema/armamento/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
@@ -92,63 +92,63 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/sistema/municao/criar') }}">Cadastrar</a>
-                                    <a href="{{ url('/sistema/municao/listar') }}">Listar</a>
+                                    <a id="top_a" href="{{ url('/sistema/municao/criar') }}">Cadastrar</a>
+                                    <a id="top_a" href="{{ url('/sistema/municao/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a id="top_a"href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Acessórios <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/sistema/acessorio/criar') }}">Cadastrar</a>
-                                    <a href="{{ url('/sistema/acessorio/listar') }}">Listar</a>
+                                    <a  id="top_a"href="{{ url('/sistema/acessorio/criar') }}">Cadastrar</a>
+                                    <a id="top_a" href="{{ url('/sistema/acessorio/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a  id="top_a" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Reserva Material  <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/sistema/reserva/criar') }}">Cadastrar</a>
-                                    <a href="{{ url('/sistema/reserva/listar') }}">Listar</a>
+                                    <a id="top_a" href="{{ url('/sistema/reserva/criar') }}">Cadastrar</a>
+                                    <a id="top_a" href="{{ url('/sistema/reserva/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a id="top_a" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Cautelas <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/sistema/militar/listar') }}">Cadastrar</a>
-                                    <a href="{{ url('/sistema/cautela/listar') }}">Listar</a>
+                                    <a id="top_a" href="{{ url('/sistema/militar/listar') }}">Cadastrar</a>
+                                    <a id="top_a" href="{{ url('/sistema/cautela/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a  id="top_a" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Estoque <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/sistema/estoque/gerenciar') }}">Entrada de Itens</a>
-                                    <a href="{{ url('/sistema/estoque/listar') }}">Listar</a>
+                                    <a id="top_a" href="{{ url('/sistema/estoque/gerenciar') }}">Entrada de Itens</a>
+                                    <a  id="top_a" href="{{ url('/sistema/estoque/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a id="top_a" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->nome }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/logout') }}"
+                                    <a id="top_a" href="{{ url('/logout') }}"
                                        onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                         Sair!
