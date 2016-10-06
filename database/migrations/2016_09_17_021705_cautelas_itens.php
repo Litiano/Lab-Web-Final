@@ -17,6 +17,7 @@ class CautelasItens extends Migration
             $table->increments('id');
             $table->integer('cautela_id')->unsigned();
             $table->foreign('cautela_id')->references('id')->on('cautelas')->onDelete('cascade');
+            $table->unsignedInteger('item_id');
             $table->string('descricao');
             $table->integer('quantidade_solicitada');
             $table->integer('quantidade_devolvida')->default('0');

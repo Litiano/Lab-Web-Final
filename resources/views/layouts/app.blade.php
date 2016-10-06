@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/app.css"/>
 
     <!-- Scripts -->
     <script>
@@ -21,7 +21,7 @@
     </script>
     <style>
     .navbar.navbar-default.navbar-static-top.topbackgroud {
-    background-image: url("images/camuflagem.png");
+    background-image: url("/images/camuflagem.png");
     }
     #top_a{
       color: white;
@@ -174,6 +174,14 @@
         </div>
     </div>
 @endif
+    @if(session('erro'))
+        <div class="container">
+            <div class="row col-md-8 col-md-offset-2 container">
+                <div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{session('erro')}}</div>
+            </div>
+        </div>
+    @endif
 @if(isset($mensagem))
     <div class="container">
         <div class="row col-md-8 col-md-offset-2 container">
@@ -182,6 +190,14 @@
         </div>
     </div>
 @endif
+    @if(session('mensagem'))
+        <div class="container">
+            <div class="row col-md-8 col-md-offset-2 container">
+                <div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{session('mensagem')}}</div>
+            </div>
+        </div>
+    @endif
 
 
 

@@ -58,6 +58,7 @@ Route::group(['prefix'=>'sistema', 'middleware'=>'auth'], function (){
         Route::post('editar/{id}', 'CautelaController@editarPost');
         Route::get('criar/{militarId}', 'CautelaController@criar');
         Route::post('criar', 'CautelaController@criarPost');
+        Route::post('devolver-item/{id}', 'CautelaController@devolverItem');
     });
 
     Route::group(['prefix'=>'municao'], function () {

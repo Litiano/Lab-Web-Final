@@ -48,6 +48,7 @@ class CautelaController extends Controller
                 $armamento->save();
                 $itemCautela = new Cautela\Item();
                 $itemCautela->cautela_id = $cautela->id;
+                $itemCautela->item_id = $armamento->id;
                 $itemCautela->descricao = $armamento->modelo;
                 $itemCautela->tipo = 'armamento';
                 $itemCautela->quantidade_solicitada = 1;
@@ -56,35 +57,48 @@ class CautelaController extends Controller
             }
         }
 
-        foreach ($dados['municoes'] as $key => $quantidade){
-            if($quantidade == 0){continue;}
-            $municao = Estoque::find($key);
-            $municao->quantidade = $municao->quantidade - $quantidade;
-            $municao->save();
-            $itemCautela = new Cautela\Item();
-            $itemCautela->cautela_id = $cautela->id;
-            $itemCautela->descricao = $municao->item->descricao;
-            $itemCautela->tipo = 'municao';
-            $itemCautela->quantidade_solicitada = $quantidade;
-            $itemCautela->quantidade_devolvida = 0;
-            $itemCautela->save();
+        if(isset($dados['municoes'])){
+            foreach ($dados['municoes'] as $key => $quantidade){
+                if($quantidade == 0){continue;}
+                $municao = Estoque::find($key);
+                $municao->quantidade = $municao->quantidade - $quantidade;
+                $municao->save();
+                $itemCautela = new Cautela\Item();
+                $itemCautela->cautela_id = $cautela->id;
+                $itemCautela->item_id = $municao->id;
+                $itemCautela->descricao = $municao->item->descricao;
+                $itemCautela->tipo = 'municao';
+                $itemCautela->quantidade_solicitada = $quantidade;
+                $itemCautela->quantidade_devolvida = 0;
+                $itemCautela->save();
+            }
         }
 
-        foreach ($dados['acessorios'] as $key => $quantidade){
-            if($quantidade == 0){continue;}
-            $acessorio = Estoque::find($key);
-            $acessorio->quantidade = $acessorio->quantidade - $quantidade;
-            $acessorio->save();
-            $itemCautela = new Cautela\Item();
-            $itemCautela->cautela_id = $cautela->id;
-            $itemCautela->descricao = $acessorio->item->descricao;
-            $itemCautela->tipo = 'acessorio';
-            $itemCautela->quantidade_solicitada = $quantidade;
-            $itemCautela->quantidade_devolvida = 0;
-            $itemCautela->save();
+        if(isset($dados['acessorios'])){
+            foreach ($dados['acessorios'] as $key => $quantidade){
+                if($quantidade == 0){continue;}
+                $acessorio = Estoque::find($key);
+                $acessorio->quantidade = $acessorio->quantidade - $quantidade;
+                $acessorio->save();
+                $itemCautela = new Cautela\Item();
+                $itemCautela->cautela_id = $cautela->id;
+                $itemCautela->item_id = $acessorio->id;
+                $itemCautela->descricao = $acessorio->item->descricao;
+                $itemCautela->tipo = 'acessorio';
+                $itemCautela->quantidade_solicitada = $quantidade;
+                $itemCautela->quantidade_devolvida = 0;
+                $itemCautela->save();
+            }
         }
 
-        dd($request->all());
+        if($cautela->itens->count() == 0){
+            $cautela->delete();
+            return redirect()->back()
+                ->with('erro', 'Selecione algum item!');
+        }
+
+        return redirect('/sistema/cautela/ver/'.$cautela->id)
+            ->with('mensagem', 'Cautela Cadastrada com Sucesso!');
     }
 
     public function ver($id){
@@ -110,5 +124,28 @@ class CautelaController extends Controller
     public function listar(){
         $cautelas = Cautela::whereReservaId(\Auth::user()->reserva_id)->get();
         return view('cautela.listar', compact('cautelas'));
+    }
+
+    public function devolverItem($id, Request $request){
+        $all = $request->all();
+
+        $item = Cautela\Item::find($id);
+        $item->quantidade_devolvida = $item->quantidade_devolvida + $all['quantidade'];
+        $item->save();
+
+        switch ($all['tipo']){
+            case 'armamento':
+                $armamento = Armamento::find($item->item_id);
+                $armamento->disponivel = 1;
+                $armamento->save();
+                break;
+            default :
+                $estoque = Estoque::find($item->item_id);
+                $estoque->quantidade = $estoque->quantidade + $all['quantidade'];
+                $estoque->save();
+                break;
+        }
+
+        return redirect()->back()->with('mensagem', 'Item devolvido com sucesso"');
     }
 }
