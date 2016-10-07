@@ -23,7 +23,7 @@
     .navbar.navbar-default.navbar-static-top.topbackgroud {
         background-image: url("/images/camuflagem.png");
     }
-    .dropdown-toggle, .navbar-brand{
+    .dropdown-toggle, .navbar-brand, .nav li a{
         color: white!important;
     }
     img {

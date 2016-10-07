@@ -96,6 +96,6 @@
                 </div>
             </div>
         </div>
-        <span id="image"><img src="images/exercito.jpg"  height="300" width="169"alt="" /></span>
+        <span id="image"><img style="" src="images/exercito.jpg"  height="300" width="169"alt="" /></span>
     </body>
 </html>

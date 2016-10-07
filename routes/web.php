@@ -51,7 +51,7 @@ Route::group(['prefix'=>'sistema', 'middleware'=>'auth'], function (){
     });
 
     Route::group(['prefix'=>'cautela'], function () {
-        Route::get('listar', 'CautelaController@listar');
+        Route::get('listar/{id?}', 'CautelaController@listar');
         Route::get('ver/{id}', 'CautelaController@ver');
         Route::get('excluir/{id}', 'CautelaController@excluir');
         Route::get('editar/{id}', 'CautelaController@editar');
@@ -59,6 +59,7 @@ Route::group(['prefix'=>'sistema', 'middleware'=>'auth'], function (){
         Route::get('criar/{militarId}', 'CautelaController@criar');
         Route::post('criar', 'CautelaController@criarPost');
         Route::post('devolver-item/{id}', 'CautelaController@devolverItem');
+        Route::get('devolver-tudo/{id}', 'CautelaController@devolverTudo');
     });
 
     Route::group(['prefix'=>'municao'], function () {

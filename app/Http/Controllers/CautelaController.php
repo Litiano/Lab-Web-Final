@@ -121,8 +121,14 @@ class CautelaController extends Controller
 
     }
 
-    public function listar(){
-        $cautelas = Cautela::whereReservaId(\Auth::user()->reserva_id)->get();
+    public function listar($id = null){
+        if(isset($id)){
+            $cautelas = Cautela::whereReservaId(\Auth::user()->reserva_id)
+                ->whereMilitarId($id)->get();
+        }else{
+            $cautelas = Cautela::whereReservaId(\Auth::user()->reserva_id)->get();
+        }
+
         return view('cautela.listar', compact('cautelas'));
     }
 
@@ -150,6 +156,23 @@ class CautelaController extends Controller
     }
 
     public function devolverTudo($id){
-
+        $itens = Cautela\Item::whereCautelaId($id)->get();
+        foreach ($itens as $item){
+            if($item->tipo == "armamento"){
+                $armamento = Armamento::find($item->item_id);
+                $armamento->disponivel = 1;
+                $armamento->save();
+            }else{
+                $estoque = Estoque::find($item->item_id);
+                $estoque->quantidade = $estoque->quantidade + $item->quantidade;
+                $estoque->save();
+            }
+            $item->quantidade_devolvida = $item->quantidade_solicitada;
+            $item->save();
+        }
+        $cautela = Cautela::find($id);
+        $cautela->finalizada = true;
+        $cautela->save();
+        return redirect()->back()->with('mensagem', 'Cautela devolvida com sucesso"');
     }
 }

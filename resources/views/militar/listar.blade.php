@@ -17,7 +17,7 @@
                 <td>{{$militar->nome_guerra}}</td>
                 <td>{{$militar->posto}}</td>
                 <td>
-                    <button class="btn btn-success">Ver Cautelas</button>
+                    <a href="{{url('/sistema/cautela/listar', ['id'=>$militar->id])}}"><button class="btn btn-success">Ver Cautelas</button></a>
                     <a href="{{url('/sistema/cautela/criar/').'/'.$militar->id}}"><button class="btn btn-success">Criar Cautela</button></a>
                 </td>
             </tr>
