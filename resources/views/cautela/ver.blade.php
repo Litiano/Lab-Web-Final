@@ -6,6 +6,8 @@
             <div class="col-md-8 col-md-offset-2">
                 <h3>Cautela - Militar: {{$cautela->militar->nome_guerra}}</h3>
                 <h4>Data: {{$cautela->created_at->format('d-m-Y H:i')}}</h4>
+                <a href="{{url('/sistema/cautela/devolver-tudo')}}"><button class="btn btn-danger">Devolver tudo!</button></a>
+
             </div>
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -18,7 +20,7 @@
                                     <input type="hidden" name="tipo" value="armamento">
                                     <input type="hidden" name="quantidade" value="1">
                                     {{csrf_field()}}
-                                <label class="col-md-4 control-label form-inline">{{$armamento->descricao}}: 1
+                                <label class="col-md-4 control-label form-inline">{{$armamento->descricao}}: @if($armamento->quantidade) 1 @else 0 @endif
                                     <button type="submit" class="btn btn-warning">Devolter Item</button>
                                 </label>
                                 </form>

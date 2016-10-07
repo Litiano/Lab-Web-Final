@@ -148,4 +148,8 @@ class CautelaController extends Controller
 
         return redirect()->back()->with('mensagem', 'Item devolvido com sucesso"');
     }
+
+    public function devolverTudo($id){
+
+    }
 }

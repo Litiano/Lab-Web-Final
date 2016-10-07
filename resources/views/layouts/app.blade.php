@@ -21,10 +21,10 @@
     </script>
     <style>
     .navbar.navbar-default.navbar-static-top.topbackgroud {
-    background-image: url("/images/camuflagem.png");
+        background-image: url("/images/camuflagem.png");
     }
-    #top_a{
-      color: white;
+    .dropdown-toggle, .navbar-brand{
+        color: white!important;
     }
     img {
       margin-top: 49px;
@@ -70,7 +70,7 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a id="top_a"href="{{ url('/sistema/militar/criar') }}">Cadastrar</a>
+                                    <a id="top_a" href="{{ url('/sistema/militar/criar') }}">Cadastrar</a>
                                     <a id="top_a" href="{{ url('/sistema/militar/listar') }}">Listar</a>
                                 </li>
                             </ul>
