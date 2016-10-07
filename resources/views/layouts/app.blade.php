@@ -23,7 +23,7 @@
     .navbar.navbar-default.navbar-static-top.topbackgroud {
         background-image: url("/images/camuflagem.png");
     }
-    .dropdown-toggle, .navbar-brand, .nav li a{
+    .dropdown-toggle, .branco a, .navbar-brand{
         color: white!important;
     }
     img {
@@ -46,7 +46,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a id="top_a" class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }} {{@Auth::user()->reserva->sigla}}
                 </a>
             </div>
@@ -61,8 +61,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a  id="top_a"href="{{ url('/login') }}">Login</a></li>
-                        <li><a id="top_a" href="{{ url('/register') }}">Register</a></li>
+                        <li class="branco"><a href="{{ url('/login') }}">Login</a></li>
+                        <li class="branco"><a href="{{ url('/register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -70,8 +70,8 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a id="top_a" href="{{ url('/sistema/militar/criar') }}">Cadastrar</a>
-                                    <a id="top_a" href="{{ url('/sistema/militar/listar') }}">Listar</a>
+                                    <a href="{{ url('/sistema/militar/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/militar/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
@@ -81,8 +81,8 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a id="top_a" href="{{ url('/sistema/armamento/criar') }}">Cadastrar</a>
-                                    <a id="top_a" href="{{ url('/sistema/armamento/listar') }}">Listar</a>
+                                    <a href="{{ url('/sistema/armamento/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/armamento/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
@@ -92,8 +92,8 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a id="top_a" href="{{ url('/sistema/municao/criar') }}">Cadastrar</a>
-                                    <a id="top_a" href="{{ url('/sistema/municao/listar') }}">Listar</a>
+                                    <a href="{{ url('/sistema/municao/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/municao/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
@@ -104,51 +104,51 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a  id="top_a"href="{{ url('/sistema/acessorio/criar') }}">Cadastrar</a>
-                                    <a id="top_a" href="{{ url('/sistema/acessorio/listar') }}">Listar</a>
+                                    <a href="{{ url('/sistema/acessorio/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a  id="top_a" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Reserva Material  <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a id="top_a" href="{{ url('/sistema/reserva/criar') }}">Cadastrar</a>
-                                    <a id="top_a" href="{{ url('/sistema/reserva/listar') }}">Listar</a>
+                                    <a href="{{ url('/sistema/reserva/criar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/reserva/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a id="top_a" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Cautelas <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a id="top_a" href="{{ url('/sistema/militar/listar') }}">Cadastrar</a>
-                                    <a id="top_a" href="{{ url('/sistema/cautela/listar') }}">Listar</a>
+                                    <a href="{{ url('/sistema/militar/listar') }}">Cadastrar</a>
+                                    <a href="{{ url('/sistema/cautela/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a  id="top_a" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Estoque <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a id="top_a" href="{{ url('/sistema/estoque/gerenciar') }}">Entrada de Itens</a>
-                                    <a  id="top_a" href="{{ url('/sistema/estoque/listar') }}">Listar</a>
+                                    <a href="{{ url('/sistema/estoque/gerenciar') }}">Entrada de Itens</a>
+                                    <a  href="{{ url('/sistema/estoque/listar') }}">Listar</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a id="top_a" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->nome }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a id="top_a" href="{{ url('/logout') }}"
+                                    <a href="{{ url('/logout') }}"
                                        onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                         Sair!
