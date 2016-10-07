@@ -21,17 +21,18 @@ class EstoqueController extends Controller
 
     public function gerenciarPost(Request $request){
         $data = $request->all();
-        foreach ($data['acessorios'] as $key => $acessorio){
+        foreach (@$data['acessorios'] as $key => $acessorio){
             $item = Estoque::firstOrNew(['reserva_id' => \Auth::user()->reserva_id, 'tipo'=> 'acessorio', 'item_id' => $key]);
             $item->quantidade = $item->quantidade + $acessorio['quantidade'];
             $item->save();
         }
 
-        foreach ($data['municoes'] as $key => $municao){
+        foreach (@$data['municoes'] as $key => $municao){
             $item = Estoque::firstOrNew(['reserva_id' => \Auth::user()->reserva_id, 'tipo'=> 'municao', 'item_id' => $key]);
             $item->quantidade = $item->quantidade + $municao['quantidade'];
             $item->save();
         }
+        return redirect()->back()->with('mensagem', "Sucesso!");
     }
 
     public function teste(){

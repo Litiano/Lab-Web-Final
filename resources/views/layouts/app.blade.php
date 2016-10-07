@@ -108,7 +108,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="dropdown">
+                        <!--<li class="dropdown">
                             <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Reserva Material  <span class="caret"></span>
                             </a>
@@ -118,7 +118,7 @@
                                     <a href="{{ url('/sistema/reserva/listar') }}">Listar</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Cautelas <span class="caret"></span>
