@@ -8,6 +8,7 @@ use App\Models\Estoque;
 use App\Models\Militar;
 use App\Models\Municao;
 use App\Models\Reserva;
+use Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -20,13 +21,13 @@ class CautelaController extends Controller
 
     public function criar($militarId){
         $militar = Militar::find($militarId);
-        if(\Auth::user()->reserva_id != $militar->reserva_id){
+        if(Auth::user()->reserva_id != $militar->reserva_id){
             return redirect()->back();
         }
-        $armamentos = Armamento::whereReservaId(\Auth::user()->reserva_id)->whereDisponivel(1)->get();
+        $armamentos = Armamento::whereReservaId(Auth::user()->reserva_id)->whereDisponivel(1)->get();
 
-        $municoes = Estoque::whereReservaId(\Auth::user()->reserva_id)->where('quantidade', '>', 0)->whereTipo('municao')->get();
-        $acessorios = Estoque::whereReservaId(\Auth::user()->reserva_id)->where('quantidade', '>', 0)->whereTipo('acessorio')->get();
+        $municoes = Estoque::whereReservaId(Auth::user()->reserva_id)->where('quantidade', '>', 0)->whereTipo('municao')->get();
+        $acessorios = Estoque::whereReservaId(Auth::user()->reserva_id)->where('quantidade', '>', 0)->whereTipo('acessorio')->get();
 
         return view('cautela.criar', compact('militar', 'armamentos', 'municoes', 'acessorios'));
     }
@@ -36,8 +37,8 @@ class CautelaController extends Controller
 
         $cautela = new Cautela();
         $cautela->militar_id = $dados['militar_id'];
-        $cautela->reserva_id = \Auth::user()->reserva_id;
-        $cautela->user_id = \Auth::user()->id;
+        $cautela->reserva_id = Auth::user()->reserva_id;
+        $cautela->user_id = Auth::user()->id;
         $cautela->finalizada = false;
         $cautela->save();
 
@@ -123,10 +124,10 @@ class CautelaController extends Controller
 
     public function listar($id = null){
         if(isset($id)){
-            $cautelas = Cautela::whereReservaId(\Auth::user()->reserva_id)
+            $cautelas = Cautela::whereReservaId(Auth::user()->reserva_id)
                 ->whereMilitarId($id)->get();
         }else{
-            $cautelas = Cautela::whereReservaId(\Auth::user()->reserva_id)->get();
+            $cautelas = Cautela::whereReservaId(Auth::user()->reserva_id)->get();
         }
 
         return view('cautela.listar', compact('cautelas'));
