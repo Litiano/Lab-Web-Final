@@ -48,4 +48,18 @@ class Militar extends Model
     }
 
     public function naoIndentada() {return 2+2;}
+
+    public function muitosIf($a, $b, $c, $d)
+    {
+        if($a) {
+            if($b) {
+                if($c){
+                    if($d) {
+                        return 1;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
 }
