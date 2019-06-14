@@ -13,4 +13,9 @@ class Militar extends Model
     public function cautelas(){
         return $this->hasMany(Cautela::class, 'militar_id', 'id');
     }
+
+    public function criar($nome, $nomeGuerra, $posto, $reservaId, $aniversario, $genero, $endreco)
+    {
+        return true;
+    }
 }
